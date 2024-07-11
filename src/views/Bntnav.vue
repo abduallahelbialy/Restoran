@@ -9,12 +9,18 @@
               currentPath === '/' || currentPath === '/create' ? '#fff ' : '',
           }"
         >
-          <router-link class="navbar-brand" to="/home"   >
-            <div class="logo" >
-              <h1 :style="{
-            display:
-              currentPath === '/' || currentPath === '/create' ? 'none ' : '',
-          }">{{ $t("message.Restoran") }}</h1>
+          <router-link class="navbar-brand" to="/home">
+            <div class="logo">
+              <h1
+                :style="{
+                  display:
+                    currentPath === '/' || currentPath === '/create'
+                      ? 'none '
+                      : '',
+                }"
+              >
+                {{ $t("message.Restoran") }}
+              </h1>
             </div>
           </router-link>
           <div class="d-flex gap-2 btn-two px-2">
@@ -24,7 +30,6 @@
             <router-link v-if="showLogButton" to="/">
               <button>{{ $t("message.log") }}</button>
             </router-link>
-            
           </div>
           <div
             class="btn-two d-flex justify-content-between align-items-center p-2 flex-wrap"
@@ -45,6 +50,12 @@
             </div>
           </div>
           <button
+            :style="{
+              visibility:
+                currentPath === '/' || currentPath === '/create'
+                  ? 'hidden '
+                  : '',
+            }"
             class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -167,7 +178,10 @@ export default {
       );
     },
     showUserButton() {
-      return this.$route.path === "/home" && this.isLoggedIn;
+      return (
+        this.$route.path === "/home" &&
+        this.isLoggedIn
+      );
     },
     isLoggedIn() {
       const userStore = useUserStore();
@@ -248,8 +262,8 @@ export default {
   border-bottom: 2px solid #d61d1d;
   width: fit-content;
 }
-.logo h1{
-color: #d2881a;
+.logo h1 {
+  color: #d2881a;
 }
 .btn-two button {
   border: none;
