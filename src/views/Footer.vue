@@ -83,7 +83,7 @@ export default {
   },
   computed: {
     shouldHideFooter() {
-      return this.currentPath === '/' || this.currentPath === '/create';
+      return this.currentPath === '/' || this.currentPath === '/create' || this.currentPath === '/forget' ;
     }
   },
     watch: {

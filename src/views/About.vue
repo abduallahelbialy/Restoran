@@ -76,7 +76,9 @@
       </div>
     </div>
   </div>
-  <Team/>
+  <div v-if="currentPath === '/about'">
+    <Team/>
+  </div>
 </template>
 
 <script>

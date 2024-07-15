@@ -10,6 +10,7 @@ import Contact from "../views/Contact.vue";
 import Team from "../views/Team.vue";
 import Testimonial from "../views/Testimonial.vue";
 import Conus from "../views/Conus.vue";
+import Forget from "../views/Forget.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -63,6 +64,11 @@ const router = createRouter({
       path: "/testimonial",
       name: "Testimonial",
       component: Testimonial,
+    },
+    {
+      path: "/forget",
+      name: "Forget",
+      component: Forget,
     },
     {
       path: "/:cathAll(.*)",

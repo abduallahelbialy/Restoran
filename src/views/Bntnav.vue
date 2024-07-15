@@ -2,19 +2,20 @@
   <div class="btn-nav">
     <div class="container-fluid">
       <div class="row">
-        <nav
-          class="navbar navbar-expand-lg sticky-top"
-          :style="{
-            background:
-              currentPath === '/' || currentPath === '/create' ? '#fff ' : '',
-          }"
-        >
+     <nav
+  v-if="currentPath !== '/forget'"
+  class="navbar navbar-expand-lg sticky-top"
+  :style="{
+    background:
+      currentPath === '/' || currentPath === '/create' ? '#fff' : '',
+  }"
+>
           <router-link class="navbar-brand" to="/home">
             <div class="logo">
               <h1
                 :style="{
                   display:
-                    currentPath === '/' || currentPath === '/create'
+                    currentPath === '/' || currentPath === '/create' || currentPath ===  '/forget'
                       ? 'none '
                       : '',
                 }"
@@ -27,10 +28,19 @@
             <router-link v-if="showCreateButton" to="/create">
               <button>{{ $t("message.create") }}</button>
             </router-link>
+            <!-- <div class="pha" v-if="currentPath === '/' || currentPath === '/create'">
+
+              <button @click="changeLanguage">
+                  {{ $t("message.changeLang") }}
+                </button>
+            </div> -->
+            
             <router-link v-if="showLogButton" to="/">
               <button>{{ $t("message.log") }}</button>
             </router-link>
+            
           </div>
+            
           <div
             class="btn-two d-flex justify-content-between align-items-center p-2 flex-wrap"
           >
@@ -52,10 +62,11 @@
           <button
             :style="{
               visibility:
-                currentPath === '/' || currentPath === '/create'
+                currentPath === '/' || currentPath === '/create'  || currentPath === '/forget' 
                   ? 'hidden '
                   : '',
             }"
+            
             class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -76,7 +87,7 @@
               class="navbar-nav m-auto mb-2 mb-lg-0"
               :style="{
                 visibility:
-                  currentPath === '/' || currentPath === '/create'
+                  currentPath === '/' || currentPath === '/create' || currentPath === '/forget' 
                     ? 'hidden '
                     : '',
               }"
@@ -126,6 +137,7 @@
                   {{ $t("message.changeLang") }}
                 </button>
               </div>
+            
             </div>
           </div>
         </nav>
@@ -163,7 +175,8 @@ export default {
         this.$route.path !== "/servie" &&
         this.$route.path !== "/meun" &&
         this.$route.path !== "/testimonial" &&
-        this.$route.path !== "/conus"
+        this.$route.path !== "/conus" &&
+        this.$route.path !== '/forget' 
       );
     },
     showLogButton() {
@@ -174,7 +187,7 @@ export default {
         this.$route.path !== "/servie" &&
         this.$route.path !== "/meun" &&
         this.$route.path !== "/testimonial" &&
-        this.$route.path !== "/conus"
+        this.$route.path !== "/conus" && this.$route.path !== '/forget' 
       );
     },
     showUserButton() {
